@@ -32,7 +32,7 @@ EOF
   # Adding roles and scope to service principal
   assignments = [
     {
-      scope                = "/subscriptions/068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
+      scope                = "/subscriptions/0682XXXXXXXXXXXXXc60c"
       role_definition_name = "owner"
     },
   ]

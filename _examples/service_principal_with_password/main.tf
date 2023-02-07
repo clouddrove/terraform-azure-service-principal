@@ -13,7 +13,7 @@ module "service-principal" {
   # Adding roles and scope to service principal
   assignments = [
     {
-      scope                = "/subscriptions/068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
+      scope                = "/subscriptions/068XXXXXXXX1cabc60c"
       role_definition_name = "owner"
     },
   ]
