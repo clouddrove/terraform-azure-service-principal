@@ -76,7 +76,6 @@ Here are some examples of how you can use this module in your inventory structur
   version                        = "1.0.0"
   name                           = "app"
   environment                    = "test"
-  label_order                    = ["name", "environment"]
   password_rotation_in_years     = 1
   end_date                       = "2024-05-01T01:02:03Z"
   # Adding roles and scope to service principal
@@ -95,7 +94,6 @@ Here are some examples of how you can use this module in your inventory structur
   version                              = "1.0.0"
   name                                 = "app"
   environment                          = "test"
-  label_order                          = ["name", "environment"]
   enable_service_principal_certificate = true
   end_date                             = "2024-05-01T01:02:03Z"
   certificate_value                    = <<EOF
@@ -157,7 +155,7 @@ Here are some examples of how you can use this module in your inventory structur
 | group\_membership\_claims | Configures the groups claim issued in a user or OAuth 2.0 access token that the app expects. Possible values are None, SecurityGroup, DirectoryRole, ApplicationGroup or All. | `list(string)` | `[]` | no |
 | identifier\_uris | A set of user-defined URI(s) that uniquely identify an application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant. | `list(any)` | `[]` | no |
 | key\_id | A UUID used to uniquely identify this certificate. If not specified a UUID will be automatically generated. | `any` | `null` | no |
-| label\_order | Label order, e.g. `name`,`application`. | `list(any)` | `[]` | no |
+| label\_order | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
 | login\_url | The URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. | `string` | `null` | no |
 | logo\_image | A logo image to upload for the application, as a raw base64-encoded string. The image should be in gif, jpeg or png format. Note that once an image has been uploaded, it is not possible to remove it without replacing it with another image. | `string` | `null` | no |
 | managedby | ManagedBy, eg 'CloudDrove' or 'AnmolNagpal'. | `string` | `"anmol@clouddrove.com"` | no |
