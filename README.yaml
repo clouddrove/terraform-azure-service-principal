@@ -39,7 +39,6 @@ usage: |-
     version                        = "1.0.0"
     name                           = "app"
     environment                    = "test"
-    label_order                    = ["name", "environment"]
     password_rotation_in_years     = 1
     end_date                       = "2024-05-01T01:02:03Z"
     # Adding roles and scope to service principal
@@ -58,7 +57,6 @@ usage: |-
     version                              = "1.0.0"
     name                                 = "app"
     environment                          = "test"
-    label_order                          = ["name", "environment"]
     enable_service_principal_certificate = true
     end_date                             = "2024-05-01T01:02:03Z"
     certificate_value                    = <<EOF
