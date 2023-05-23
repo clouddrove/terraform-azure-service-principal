@@ -7,7 +7,6 @@ module "service-principal" {
   source                               = "./../.."
   name                                 = "app"
   environment                          = "test"
-  label_order                          = ["name", "environment"]
   enable_service_principal_certificate = true
   end_date                             = "2024-05-01T01:02:03Z"
   certificate_value                    = <<EOF
