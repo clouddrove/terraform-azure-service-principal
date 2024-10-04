@@ -1,6 +1,6 @@
 provider "azurerm" {
   features {}
-  subscription_id = "000000-11111-1223-XXX-XXXXXXXXXXXX"
+  subscription_id = "068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
 }
 module "service-principal" {
   source                     = "./../../.."
@@ -12,7 +12,7 @@ module "service-principal" {
   # Adding roles and scope to service principal
   assignments = [
     {
-      scope                = "/subscriptions/000000-11111-1223-XXX-XXXXXXXXXXXX"
+      scope                = "/subscriptions/068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
       role_definition_name = "owner"
     },
   ]

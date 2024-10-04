@@ -1,7 +1,7 @@
 # Azurerm provider configuration
 provider "azurerm" {
   features {}
-  subscription_id = "000000-11111-1223-XXX-XXXXXXXXXXXX"
+  subscription_id = "068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
 }
 
 module "service-principal" {
@@ -31,7 +31,7 @@ EOF
   password_rotation_in_years           = 1
   assignments = [
     {
-      scope                = "/subscriptions/000000-11111-1223-XXX-XXXXXXXXXXXX"
+      scope                = "/subscriptions/068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
       role_definition_name = "owner"
     },
   ]
