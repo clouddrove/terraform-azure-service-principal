@@ -9,13 +9,13 @@ output "service_principal_object_id" {
 }
 
 output "service_principal_application_id" {
-  description = "The object id of service principal. Can be used to assign roles to user."
-  value       = azuread_service_principal.main.application_id
+  description = "The client ID of the service principal. Can be used to assign roles to users."
+  value       = azuread_service_principal.main.client_id
 }
 
 output "client_id" {
-  description = "The application id of AzureAD application created."
-  value       = azuread_application.main.application_id
+  description = "The client ID of the Azure AD application created."
+  value       = azuread_application.main.client_id
 }
 
 output "client_secret" {
