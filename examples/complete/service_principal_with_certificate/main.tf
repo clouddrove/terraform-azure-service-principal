@@ -1,7 +1,7 @@
 # Azurerm provider configuration
 provider "azurerm" {
   features {}
-  subscription_id = "068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
+  subscription_id = "000000-11111-1223-XXX-XXXXXXXXXXXX"
 }
 
 module "service-principal" {
@@ -9,7 +9,7 @@ module "service-principal" {
   name                                 = "app"
   environment                          = "test"
   enable_service_principal_certificate = true
-  end_date                             = "2027-10-04T01:02:03Z" # Adjusted end date
+  end_date                             = "2027-10-04T01:02:03Z"
   certificate_value                    = <<EOF
 MIIC5jCCAc6gAwIBAgIIUeUhLYf6UNwwDQYJKoZIhvcNAQELBQAwETEPMA0GA1UE
 AxMGVlBOIENBMB4XDTIyMTExMTE0MzA1NFoXDTI1MTExMDE0MzA1NFowETEPMA0G
@@ -31,7 +31,7 @@ EOF
   password_rotation_in_years           = 1
   assignments = [
     {
-      scope                = "/subscriptions/068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
+      scope                = "/subscriptions/000000-11111-1223-XXX-XXXXXXXXXXXX"
       role_definition_name = "owner"
     },
   ]

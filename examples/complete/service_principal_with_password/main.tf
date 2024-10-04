@@ -1,18 +1,16 @@
 provider "azurerm" {
   features {}
-  subscription_id = "068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
+  subscription_id = "000000-11111-1223-XXX-XXXXXXXXXXXX"
 }
 module "service-principal" {
   source                     = "./../../.."
   name                       = "app"
   environment                = "test"
   password_rotation_in_years = 1
-  end_date                   = "2027-10-04T01:02:03Z" # Ensure this is within 3 years of the start date
-
-  # Adding roles and scope to service principal
+  end_date                   = "2027-10-04T01:02:03Z"
   assignments = [
     {
-      scope                = "/subscriptions/068245d4-3c94-42fe-9c4d-9e5e1cabc60c"
+      scope                = "/subscriptions/000000-11111-1223-XXX-XXXXXXXXXXXX"
       role_definition_name = "owner"
     },
   ]
