@@ -4,34 +4,22 @@ variable "name" {
   description = "Name (e.g. `app` or `cluster`)."
 }
 
-variable "application" {
-  type        = string
-  default     = ""
-  description = "Application (e.g. `cd` or `clouddrove`)."
-}
-
 variable "environment" {
   type        = string
   default     = ""
   description = "Environment (e.g. `prod`, `dev`, `staging`)."
 }
 
-variable "tags" {
-  type        = map(any)
-  default     = {}
-  description = "Additional tags (e.g. map(`BusinessUnit`, `XYZ`)."
-}
-
 variable "managedby" {
   type        = string
   default     = "anmol@clouddrove.com"
-  description = "ManagedBy, e.g. 'CloudDrove' or 'AnmolNagpal'."
+  description = "ManagedBy, eg 'CloudDrove' or 'AnmolNagpal'."
 }
 
 variable "label_order" {
-  type        = list(string)
+  type        = list(any)
   default     = ["name", "environment"]
-  description = "Label order, e.g. `name`, `application`."
+  description = "Label order, e.g. `name`,`application`."
 }
 
 variable "repository" {
@@ -40,14 +28,7 @@ variable "repository" {
   description = "Terraform current module repo"
 }
 
-variable "service_principal_name" {
-  type        = string
-  description = "The name of the service principal"
-  default     = ""
-}
-
 variable "sign_in_audience" {
-  type        = string
   description = "The Microsoft account types that are supported for the current application. Must be one of `AzureADMyOrg`, `AzureADMultipleOrgs`, `AzureADandPersonalMicrosoftAccount` or `PersonalMicrosoftAccount`"
   default     = "AzureADMyOrg"
 }
@@ -59,84 +40,62 @@ variable "alternative_names" {
 }
 
 variable "description" {
-  type        = string
   description = "A description of the service principal provided for internal end-users."
   default     = null
 }
 
-variable "role_definition_name" {
-  type        = string
-  description = "The name of a Azure built-in Role for the service principal"
-  default     = null
-}
-
 variable "password_end_date" {
-  type        = string
   description = "The relative duration or RFC3339 rotation timestamp after which the password expire"
   default     = null
 }
 
 variable "password_rotation_in_years" {
-  type        = number
-  description = "Number of years to add to the base timestamp to configure the password rotation timestamp. Conflicts with password_end_date and either one must be specified, not both."
+  description = "Number of years to add to the base timestamp to configure the password rotation timestamp. Conflicts with password_end_date and either one is specified and not the both"
   default     = null
 }
 
 variable "password_rotation_in_days" {
-  type        = number
-  description = "Number of days to add to the base timestamp to configure the rotation timestamp. When the current time has passed the rotation timestamp, the resource will trigger recreation. Conflicts with `password_end_date`, `password_rotation_in_years` and either one must be specified, not all."
+  description = "Number of days to add to the base timestamp to configure the rotation timestamp. When the current time has passed the rotation timestamp, the resource will trigger recreation.Conflicts with `password_end_date`, `password_rotation_in_years` and either one must be specified, not all"
   default     = null
 }
 
 variable "enable_service_principal_certificate" {
-  type        = bool
   description = "Manages a Certificate associated with a Service Principal within Azure Active Directory"
   default     = false
 }
 
 variable "certificate_encoding" {
-  type        = string
   description = "Specifies the encoding used for the supplied certificate data. Must be one of `pem`, `base64` or `hex`"
   default     = "pem"
 }
 
 variable "key_id" {
-  type        = string
   description = "A UUID used to uniquely identify this certificate. If not specified a UUID will be automatically generated."
   default     = null
 }
 
 variable "certificate_type" {
-  type        = string
   description = "The type of key/certificate. Must be one of AsymmetricX509Cert or Symmetric"
   default     = "AsymmetricX509Cert"
 }
 
-variable "certificate_path" {
-  type        = string
-  description = "The path to the certificate for this Service Principal"
-  default     = ""
-}
-
 variable "azure_role_name" {
-  type        = string
   description = "A unique UUID/GUID for this Role Assignment - one will be generated if not specified."
   default     = null
 }
 
 variable "azure_role_description" {
-  type        = string
   description = "The description for this Role Assignment"
   default     = null
 }
 
 variable "assignments" {
+  description = "The list of role assignments to this service principal"
   type = list(object({
     scope                = string
     role_definition_name = string
   }))
-  description = "The list of role assignments to this service principal"
-  default     = []
+  default = []
 }
 
 variable "device_only_auth_enabled" {
@@ -158,7 +117,7 @@ variable "group_membership_claims" {
 }
 
 variable "identifier_uris" {
-  type        = list(string)
+  type        = list(any)
   default     = []
   description = "A set of user-defined URI(s) that uniquely identify an application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant."
 }
@@ -194,7 +153,7 @@ variable "notes" {
 }
 
 variable "notification_email_addresses" {
-  type        = list(string)
+  type        = list(any)
   default     = []
   description = "A set of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications."
 }
