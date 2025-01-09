@@ -10,7 +10,7 @@ output "service_principal_object_id" {
 
 output "service_principal_application_id" {
   description = "The application id of service principal"
-  value       = module.service-principal.service_principal_application_id
+  value       = module.service-principal.service_principal_client_id
 }
 
 output "client_id" {

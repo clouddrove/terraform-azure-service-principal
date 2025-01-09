@@ -10,10 +10,10 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_examples/service_principal_with_certificate" # Location of package manifests
+    directory: "examples/complete/service_principal_with_certificate" # Location of package manifests
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_examples/service_principal_with_password" # Location of package manifests
+    directory: "examples/complete/service_principal_with_password" # Location of package manifests
     schedule:
       interval: "weekly"

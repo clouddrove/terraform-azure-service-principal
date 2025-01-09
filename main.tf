@@ -21,7 +21,7 @@ resource "azuread_application" "main" {
 }
 
 resource "azuread_service_principal" "main" {
-  application_id                = azuread_application.main.application_id
+  client_id                     = azuread_application.main.client_id
   owners                        = [data.azuread_client_config.current.object_id]
   alternative_names             = var.alternative_names
   account_enabled               = var.account_enabled

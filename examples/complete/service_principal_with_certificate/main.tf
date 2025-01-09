@@ -1,14 +1,15 @@
 # Azurerm provider configuration
 provider "azurerm" {
   features {}
+  subscription_id = "000000-11111-1223-XXX-XXXXXXXXXXXX"
 }
 
 module "service-principal" {
-  source                               = "./../.."
+  source                               = "./../../.."
   name                                 = "app"
   environment                          = "test"
   enable_service_principal_certificate = true
-  end_date                             = "2024-05-01T01:02:03Z"
+  end_date                             = "2027-10-04T01:02:03Z"
   certificate_value                    = <<EOF
 MIIC5jCCAc6gAwIBAgIIUeUhLYf6UNwwDQYJKoZIhvcNAQELBQAwETEPMA0GA1UE
 AxMGVlBOIENBMB4XDTIyMTExMTE0MzA1NFoXDTI1MTExMDE0MzA1NFowETEPMA0G
@@ -28,10 +29,9 @@ LIO1Knhk7J2XIXs6wCw1OcLJfXhjEEbnYZaHYA3LCTot9LM+3ecloILUo7rQgooB
 Mb0BNzEPxRFt+L8A72gd/nTcxGrxEcQlqEc=
 EOF
   password_rotation_in_years           = 1
-  # Adding roles and scope to service principal
   assignments = [
     {
-      scope                = "/subscriptions/0682XXXXXXXXXXXXXc60c"
+      scope                = "/subscriptions/000000-11111-1223-XXX-XXXXXXXXXXXX"
       role_definition_name = "owner"
     },
   ]
